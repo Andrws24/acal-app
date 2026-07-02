@@ -3,7 +3,7 @@ export const COMPANY = {
   slogan: "Tecnología que conecta y soluciona.",
   description:
     "ACAL es una empresa colombiana dedicada a brindar soluciones tecnológicas para personas y pequeñas empresas. Ofrecemos soporte técnico, asesoría tecnológica, desarrollo web y soluciones digitales.",
-  email: "ac.soltecnologia@gmail.com",
+  email: "soporte.acal@gmail.com",
   phone: "3023461106",
   whatsapp: "573023461106",
   instagram: "acal.co",
