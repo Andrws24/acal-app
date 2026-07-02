@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type React from "react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Admin",
@@ -25,9 +26,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <aside className="w-64 bg-white border-r border-gray/40 hidden lg:block">
           <div className="p-6">
             <div className="flex items-center gap-2 mb-8">
-              <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
-              </div>
+              <Image
+                src="/images/logo-icon.png"
+                alt="ACAL logo"
+                width={32}
+                height={32}
+                className="w-8 h-8 object-contain"
+              />
               <span className="font-bold text-text">Admin ACAL</span>
             </div>
             <nav className="space-y-1">

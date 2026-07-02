@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Globe, AtSign, Share2, Mail, MapPin, Phone } from "lucide-react";
 import { COMPANY, NAVIGATION, SERVICES } from "@/lib/constants";
 
@@ -17,9 +18,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 group mb-4">
-              <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
-              </div>
+              <Image
+                src="/images/logo-icon.png"
+                alt={`${COMPANY.name} logo`}
+                width={36}
+                height={36}
+                className="w-9 h-9 object-contain"
+              />
               <span className="font-bold text-lg text-text">{COMPANY.name}</span>
             </Link>
             <p className="text-sm text-text/60 leading-relaxed mb-6">
