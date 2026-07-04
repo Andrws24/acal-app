@@ -1,0 +1,6 @@
+Correo unificado a soporte.acal@gmail.com en todo el sitio.
+Instagram corregido a @acal.tecnologia en todo el sitio.
+Testimonios ficticios eliminados de la home.
+Links rotos "Privacidad" y "Términos" quitados del footer.
+Bloque de schema.org duplicado (y mal formado) eliminado.
+Dominio SEO corregido: de acal.com (no es tuyo) a tu URL real de Vercel, con variable de entorno lista para cuando compres dominio propio.

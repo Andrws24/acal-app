@@ -8,7 +8,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const siteUrl = "https://acal.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://acal-app.vercel.app";
 const siteName = "ACAL - Tecnología que conecta y soluciona";
 
 export const viewport: Viewport = {
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
         contactType: "customer service",
         email: "soporte.acal@gmail.com",
       },
-      sameAs: ["https://instagram.com/acal.co"],
+      sameAs: ["https://instagram.com/acal.tecnologia"],
     }),
   },
 };
@@ -113,29 +113,6 @@ export default function RootLayout({
       className={`${inter.variable} h-full scroll-smooth`}
       suppressHydrationWarning
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "ACAL",
-              url: siteUrl,
-              logo: `${siteUrl}/images/logo.png`,
-              description:
-                "Empresa colombiana de soluciones tecnológicas para personas y pequeñas empresas.",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+57-3023461106",
-                contactType: "customer service",
-                email: "soporte.acal@gmail.com",
-              },
-              sameAs: ["https://instagram.com/acal.co"],
-            }),
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-background text-text font-sans antialiased">
         {children}
       </body>

@@ -6,8 +6,8 @@ export const COMPANY = {
   email: "soporte.acal@gmail.com",
   phone: "3023461106",
   whatsapp: "573023461106",
-  instagram: "acal.co",
-  instagramUrl: "https://instagram.com/acal.co",
+  instagram: "acal.tecnologia",
+  instagramUrl: "https://instagram.com/acal.tecnologia",
   whatsappUrl: "https://wa.me/573023461106",
 } as const;
 

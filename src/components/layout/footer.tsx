@@ -115,14 +115,6 @@ export function Footer() {
           <p className="text-sm text-text/40">
             &copy; {currentYear} {COMPANY.name}. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-4 text-sm text-text/40">
-            <Link href="/" className="hover:text-primary transition-colors">
-              Privacidad
-            </Link>
-            <Link href="/" className="hover:text-primary transition-colors">
-              Términos
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
