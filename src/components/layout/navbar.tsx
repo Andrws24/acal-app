@@ -23,7 +23,7 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-20">
         <div className="flex h-16 md:h-18 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <Image
@@ -34,7 +34,7 @@ export function Navbar() {
               className="w-9 h-9 object-contain"
               priority
             />
-            <span className="font-bold text-lg text-text">{COMPANY.name}</span>
+            <span className="font-semibold text-lg text-text">{COMPANY.name}</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-1">

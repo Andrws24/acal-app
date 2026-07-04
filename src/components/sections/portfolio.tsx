@@ -19,7 +19,7 @@ export function Portfolio() {
   const [ref, isVisible] = useIntersection({ threshold: 0.1 });
 
   return (
-    <Section id="portafolio" background="gray">
+    <Section id="portafolio" background="white">
       <SectionHeader
         title="Portafolio"
         subtitle="Conoce algunos de los proyectos que hemos desarrollado. Estamos construyendo casos de éxito."
@@ -44,7 +44,7 @@ export function Portfolio() {
                 <h3 className="font-semibold text-text mt-1 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-sm text-text/60">{project.description}</p>
+                <p className="text-sm text-text/80">{project.description}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -61,7 +61,7 @@ export function Portfolio() {
                 <FolderOpen className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold text-text mb-2">¿Tu próximo proyecto?</h3>
-              <p className="text-sm text-text/60 mb-4">
+              <p className="text-sm text-text/80 mb-4">
                 Trabajemos juntos para hacer realidad tu idea.
               </p>
               <Button variant="outline" size="sm" asChild>

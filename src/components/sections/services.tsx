@@ -32,7 +32,7 @@ export function Services() {
   const [ref, isVisible] = useIntersection({ threshold: 0.1 });
 
   return (
-    <Section id="servicios" background="gray">
+    <Section id="servicios" background="white">
       <SectionHeader
         title="Servicios"
         subtitle="Ofrecemos soluciones tecnológicas integrales para personas y pequeñas empresas. Cada servicio está diseñado para resolver problemas reales."
@@ -64,7 +64,7 @@ export function Services() {
                     )}
                   </div>
 
-                  <p className="text-sm text-text/60 leading-relaxed mb-4 flex-1">
+                  <p className="text-sm text-text/80 leading-relaxed mb-4 flex-1">
                     {service.description}
                   </p>
 

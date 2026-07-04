@@ -14,7 +14,7 @@ export function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-primary/3 to-secondary/3 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 md:py-40">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-20 py-32 md:py-40">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-text leading-[1.1]"
           >
             Soluciones Tecnológicas
             <br />
@@ -42,7 +42,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-6 text-lg md:text-xl text-text/60 leading-relaxed max-w-2xl mx-auto"
+            className="mt-6 text-lg md:text-xl text-text/80 leading-relaxed max-w-2xl mx-auto"
           >
             Soporte técnico, asesoría tecnológica, desarrollo web y soluciones digitales
             para impulsar tus proyectos.
@@ -60,7 +60,7 @@ export function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
-            <Button variant="secondary" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild>
               <a href="#servicios">
                 Conocer Servicios
                 <ChevronDown className="w-4 h-4" />

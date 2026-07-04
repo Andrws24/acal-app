@@ -36,7 +36,7 @@ export function About() {
   const [ref, isVisible] = useIntersection({ threshold: 0.1 });
 
   return (
-    <Section id="nosotros">
+    <Section id="nosotros" background="gray">
       <SectionHeader
         title="Nosotros"
         subtitle="Somos una empresa colombiana enfocada en brindar soluciones tecnológicas reales para personas y pequeñas empresas."
@@ -85,7 +85,7 @@ export function About() {
                 <h3 className="font-semibold text-sm text-text mb-1.5">
                   {value.title}
                 </h3>
-                <p className="text-xs text-text/60 leading-relaxed">
+                <p className="text-xs text-text/80 leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>

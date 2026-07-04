@@ -27,7 +27,7 @@ export function Section({
       {...props}
     >
       {container ? (
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-20">{children}</div>
       ) : (
         children
       )}
@@ -54,11 +54,11 @@ export function SectionHeader({
         className
       )}
     >
-      <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text">
+      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-text">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-lg text-text/60 leading-relaxed">{subtitle}</p>
+        <p className="mt-4 text-lg text-text/80 leading-relaxed">{subtitle}</p>
       )}
     </div>
   );

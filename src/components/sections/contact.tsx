@@ -29,7 +29,7 @@ export function Contact() {
   ];
 
   return (
-    <Section id="contacto" background="gray">
+    <Section id="contacto" background="white">
       <SectionHeader
         title="Contáctanos"
         subtitle="Estamos listos para ayudarte. Escríbenos y te responderemos a la brevedad."
@@ -87,7 +87,7 @@ export function Contact() {
                   <h3 className="font-semibold text-text text-lg mb-1">
                     ¡Mensaje enviado!
                   </h3>
-                  <p className="text-sm text-text/60">
+                  <p className="text-sm text-text/80">
                     Te responderemos a la brevedad.
                   </p>
                 </div>
