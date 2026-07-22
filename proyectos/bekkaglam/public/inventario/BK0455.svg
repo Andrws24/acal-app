@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E5E7EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E5E7EB;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="400" height="500" fill="url(#bg)" rx="16"/>
+  
+  <!-- Borde sutil -->
+  <rect width="400" height="500" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" rx="16"/>
+  
+  <!-- Icono de categoría -->
+  <text x="200" y="200" font-size="80" text-anchor="middle" dominant-baseline="middle">👗</text>
+  
+  <!-- Código del producto -->
+  <text x="200" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#1A1A1A" text-anchor="middle">BK0455</text>
+  
+  <!-- Referencia -->
+  <text x="200" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#1A1A1A" text-anchor="middle" opacity="0.8"></text>
+  
+  <!-- Categoría y Color -->
+  <text x="200" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1A1A1A" text-anchor="middle" opacity="0.6"> · </text>
+  
+  <!-- Precio -->
+  <text x="200" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#1A1A1A" text-anchor="middle">$0</text>
+  
+  <!-- Talla -->
+  
+  
+  <!-- Marca agua -->
+  <text x="200" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#1A1A1A" text-anchor="middle" opacity="0.4">BEKKAGLAM</text>
+</svg>

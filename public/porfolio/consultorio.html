@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salud Vital - Consultorio Médico</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#0f172a;background:#f8fafc;display:flex}
+
+/* ─── SIDEBAR ─── */
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:280px;background:#fff;border-right:1px solid #e2e8f0;z-index:100;padding:32px 24px;display:flex;flex-direction:column;transition:.3s}
+.sidebar-logo{display:flex;align-items:center;gap:12px;margin-bottom:40px;text-decoration:none}
+.sidebar-logo .icon{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#0ea5e9,#0284c7);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px}
+.sidebar-logo h2{font-size:18px;font-weight:800;color:#0f172a}
+.sidebar-logo h2 span{color:#0ea5e9}
+.sidebar-nav{flex:1;display:flex;flex-direction:column;gap:4px}
+.sidebar-nav a{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;font-size:14px;font-weight:500;color:#64748b;text-decoration:none;transition:.2s}
+.sidebar-nav a:hover{background:#f0f7ff;color:#0c4a6e}
+.sidebar-nav a.active{background:#f0f7ff;color:#0ea5e9;font-weight:600}
+.sidebar-nav .ic{font-size:18px;width:24px;text-align:center}
+.sidebar-cta{margin-top:auto;padding-top:24px;border-top:1px solid #e2e8f0}
+.sidebar-cta a{display:block;text-align:center;padding:14px;border-radius:12px;font-size:14px;font-weight:600;color:#fff;background:linear-gradient(135deg,#0ea5e9,#0284c7);text-decoration:none;transition:.2s;box-shadow:0 4px 14px rgba(14,165,233,.2)}
+.sidebar-cta a:hover{opacity:.9;transform:translateY(-1px)}
+
+/* ─── MAIN ─── */
+.main{margin-left:280px;flex:1;min-height:100vh}
+.section{padding:100px 64px}
+.section-inner{max-width:900px;margin:0 auto}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:40px 64px;background:linear-gradient(135deg,#f0f7ff,#e0f2fe)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;width:100%}
+.hero-label{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:#0ea5e9;background:rgba(14,165,233,.08);padding:6px 14px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;color:#0c4a6e;line-height:1.15;margin-bottom:16px}
+.hero h1 span{color:#0ea5e9}
+.hero p{font-size:16px;color:#475569;line-height:1.7;margin-bottom:32px;max-width:460px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 28px;border-radius:12px;font-size:15px;font-weight:600;color:#fff;background:linear-gradient(135deg,#0ea5e9,#0284c7);text-decoration:none;transition:.3s;box-shadow:0 8px 24px rgba(14,165,233,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(14,165,233,.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:16px 28px;border-radius:12px;font-size:15px;font-weight:500;color:#0ea5e9;border:1.5px solid rgba(14,165,233,.2);text-decoration:none;transition:.2s}
+.btn-outline:hover{background:rgba(14,165,233,.05)}
+.hero-visual{display:flex;align-items:center;justify-content:center}
+.hero-card{background:#fff;border-radius:24px;padding:28px;border:1px solid #e0f2fe;box-shadow:0 20px 60px rgba(14,165,233,.06);max-width:400px}
+.hero-card .top{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.hero-card .avatar{border-radius:50%;font-size:40px}
+.hero-card .info h3{font-size:16px;font-weight:700;color:#0c4a6e}
+.hero-card .info span{font-size:12px;color:#64748b;display:block;margin-top:2px}
+.hero-card .badges{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.hero-card .badges span{padding:4px 14px;border-radius:100px;font-size:11px;font-weight:500;background:#f0f7ff;color:#0c4a6e}
+.hero-card .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-card .stat{background:#f8fafc;padding:12px;border-radius:12px;text-align:center}
+.hero-card .stat .num{font-size:22px;font-weight:800;color:#0ea5e9}
+.hero-card .stat .lbl{font-size:11px;color:#64748b;margin-top:2px}
+
+/* ─── SERVICES ─── */
+.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:#0ea5e9;margin-bottom:8px}
+.section h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:#0c4a6e;margin-bottom:8px}
+.section h2 span{color:#0ea5e9}
+.section .sub{font-size:16px;color:#64748b;max-width:500px;line-height:1.7;margin-bottom:48px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.service-card{background:#fff;border-radius:16px;padding:28px;border:1px solid #e2e8f0;transition:.3s;cursor:default}
+.service-card:hover{border-color:#bae6fd;box-shadow:0 8px 24px rgba(14,165,233,.04);transform:translateY(-2px)}
+.service-card .ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e0f2fe,#bae6fd);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.service-card h3{font-size:16px;font-weight:700;color:#0c4a6e;margin-bottom:8px}
+.service-card p{font-size:13px;color:#64748b;line-height:1.6}
+
+/* ─── DOCTORS ─── */
+.doctors-list{display:flex;flex-direction:column;gap:16px}
+.doctor-row{background:#fff;border-radius:16px;padding:24px;border:1px solid #e2e8f0;display:flex;align-items:center;gap:24px;transition:.3s}
+.doctor-row:hover{border-color:#bae6fd;box-shadow:0 4px 16px rgba(14,165,233,.04)}
+.doc-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#e0f2fe,#bae6fd);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.doc-info{flex:1}
+.doc-info h3{font-size:16px;font-weight:700;color:#0c4a6e;margin-bottom:2px}
+.doc-info .esp{font-size:13px;color:#0ea5e9;font-weight:500;margin-bottom:4px}
+.doc-info p{font-size:13px;color:#64748b;line-height:1.5}
+.doc-btn{padding:10px 24px;border-radius:10px;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(135deg,#0ea5e9,#0284c7);text-decoration:none;transition:.2s;white-space:nowrap}
+.doc-btn:hover{opacity:.9}
+
+/* ─── APPOINTMENT ─── */
+.appointment-section{background:#fff}
+.appointment-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.appointment-info h3{font-size:20px;font-weight:700;color:#0c4a6e;margin-bottom:12px}
+.appointment-info p{font-size:14px;color:#64748b;line-height:1.7;margin-bottom:24px}
+.appointment-contact{display:flex;flex-direction:column;gap:12px}
+.appointment-contact a{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;text-decoration:none;color:#0c4a6e;transition:.2s}
+.appointment-contact a:hover{border-color:#0ea5e9;background:#f0f7ff}
+.appointment-contact .ic{width:40px;height:40px;border-radius:10px;background:#e0f2fe;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.appointment-form{background:#f8fafc;border-radius:20px;padding:32px;border:1px solid #e2e8f0}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:#0c4a6e;margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border-radius:10px;border:1.5px solid #e2e8f0;font-size:14px;font-family:inherit;color:#0f172a;background:#fff;outline:none;transition:.2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#0ea5e9;box-shadow:0 0 0 3px rgba(14,165,233,.06)}
+.form-group textarea{resize:vertical;min-height:80px}
+.submit-btn{width:100%;padding:14px;border:none;border-radius:12px;font-size:15px;font-weight:600;color:#fff;background:linear-gradient(135deg,#0ea5e9,#0284c7);cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(14,165,233,.2)}
+.submit-btn:hover{opacity:.9;transform:translateY(-1px)}
+
+/* ─── FOOTER ─── */
+.footer{background:transparent;padding:40px 64px;border-top:1px solid #e2e8f0;margin-top:0}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px;color:#94a3b8}
+.footer-inner a{color:#64748b;text-decoration:none;transition:.2s}
+.footer-inner a:hover{color:#0ea5e9}
+.footer-socials{display:flex;gap:8px}
+.footer-socials a{width:32px;height:32px;border-radius:8px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;color:#64748b;transition:.2s}
+.footer-socials a:hover{background:#e0f2fe;color:#0ea5e9}
+
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);z-index:200}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:150;display:none}
+  .sidebar-overlay.open{display:block}
+  .main{margin-left:0}
+  .hero,.section{padding:80px 24px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{display:none}
+  .appointment-grid{grid-template-columns:1fr}
+  .footer{padding:24px}
+  .services-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .doctor-row{flex-direction:column;text-align:center;gap:12px}
+  .doctor-row .doc-btn{width:100%;text-align:center}
+}
+
+.mobile-menu-btn{display:none;position:fixed;top:16px;left:16px;z-index:250;width:40px;height:40px;border-radius:10px;background:#fff;border:1px solid #e2e8f0;cursor:pointer;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:.2s}
+.mobile-menu-btn:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+@media(max-width:900px){.mobile-menu-btn{display:flex}}
+
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:90;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128C7E);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;box-shadow:0 4px 20px rgba(37,211,102,.3);text-decoration:none;transition:.3s}
+.whatsapp-float:hover{transform:scale(1.1)}
+</style>
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="#" class="sidebar-logo"><div class="icon">⚕</div><h2>Salud <span>Vital</span></h2></a>
+  <nav class="sidebar-nav">
+    <a href="#inicio" class="active"><span class="ic">🏠</span> Inicio</a>
+    <a href="#servicios"><span class="ic">🩺</span> Servicios</a>
+    <a href="#doctores"><span class="ic">👨‍⚕️</span> Doctores</a>
+    <a href="#contacto"><span class="ic">📅</span> Agendar Cita</a>
+  </nav>
+  <div class="sidebar-cta">
+    <a href="https://wa.me/573023461106" target="_blank">💬 WhatsApp</a>
+  </div>
+</aside>
+
+<div class="main">
+  <section class="hero" id="inicio">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-label">👋 Bienvenido a Salud Vital</span>
+        <h1>Cuidamos de ti con <span>excelencia médica</span></h1>
+        <p>Atención médica profesional y personalizada. Contamos con especialistas comprometidos con tu bienestar y el de tu familia.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn-primary">📅 Agendar Cita</a>
+          <a href="#servicios" class="btn-outline">Servicios ↓</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="top">
+            <div class="avatar">👩‍⚕️</div>
+            <div class="info"><h3>Dra. María García</h3><span>Medicina General · 10+ años</span></div>
+          </div>
+          <div class="badges"><span>🩺 Medicina General</span><span>❤️ Prevención</span></div>
+          <div class="stats">
+            <div class="stat"><div class="num">+500</div><div class="lbl">Pacientes</div></div>
+            <div class="stat"><div class="num">98%</div><div class="lbl">Satisfacción</div></div>
+            <div class="stat"><div class="num">+10</div><div class="lbl">Especialistas</div></div>
+            <div class="stat"><div class="num">24/7</div><div class="lbl">Disponibles</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="servicios">
+    <div class="section-inner">
+      <span class="section-label">Servicios</span>
+      <h2>Nuestros <span>servicios médicos</span></h2>
+      <p class="sub">Ofrecemos una amplia gama de servicios para cuidar de ti y tu familia con los más altos estándares de calidad.</p>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="doctores" style="background:#fff">
+    <div class="section-inner">
+      <span class="section-label">Equipo</span>
+      <h2>Conoce a nuestros <span>especialistas</span></h2>
+      <p class="sub">Profesionales altamente calificados comprometidos con tu salud.</p>
+      <div class="doctors-list" id="doctorsList"></div>
+    </div>
+  </section>
+
+  <section class="section appointment-section" id="contacto">
+    <div class="section-inner">
+      <span class="section-label">Contacto</span>
+      <h2>Solicita tu <span>cita médica</span></h2>
+      <p class="sub">Déjanos tus datos y te contactaremos para agendar tu consulta.</p>
+      <div class="appointment-grid">
+        <div class="appointment-info">
+          <h3>¿Necesitas atención médica?</h3>
+          <p>Estamos listos para atenderte. Contáctanos por WhatsApp o déjanos tus datos y te llamamos.</p>
+          <div class="appointment-contact">
+            <a href="https://wa.me/573023461106" target="_blank"><div class="ic">📞</div><div><strong>WhatsApp</strong><br><span style="font-size:13px;color:#64748b">302 346 1106</span></div></a>
+            <a href="mailto:salud@acal.co"><div class="ic">✉</div><div><strong>Correo</strong><br><span style="font-size:13px;color:#64748b">salud@acal.co</span></div></a>
+            <a href="#"><div class="ic">📍</div><div><strong>Ubicación</strong><br><span style="font-size:13px;color:#64748b">Colombia</span></div></a>
+          </div>
+        </div>
+        <form class="appointment-form" onsubmit="event.preventDefault();alert('✅ Cita solicitada con éxito. Te contactaremos pronto.');this.reset()">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="Tu teléfono" required></div>
+          </div>
+          <div class="form-group"><label>Especialidad</label><select><option>Medicina General</option><option>Pediatría</option><option>Cardiología</option><option>Dermatología</option><option>Ginecología</option><option>Odontología</option></select></div>
+          <div class="form-group"><label>Mensaje (opcional)</label><textarea placeholder="Describe tus síntomas o el motivo de tu consulta..."></textarea></div>
+          <button type="submit" class="submit-btn">📅 Solicitar Cita</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 Salud Vital. Demo — Proyecto de <a href="https://wa.me/573023461106" target="_blank">ACAL</a></span>
+      <div class="footer-socials">
+        <a href="#">📷</a><a href="#">👍</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<a href="https://wa.me/573023461106" target="_blank" class="whatsapp-float">💬</a>
+
+<script>
+const services = [
+  {icon:'🩺',name:'Medicina General',desc:'Consultas de atención primaria para todas las edades.'},
+  {icon:'👶',name:'Pediatría',desc:'Atención especializada para niños y adolescentes.'},
+  {icon:'❤️',name:'Cardiología',desc:'Diagnóstico y tratamiento cardiovascular.'},
+  {icon:'🔬',name:'Dermatología',desc:'Cuidado integral de la piel.'},
+  {icon:'🦷',name:'Odontología',desc:'Salud dental y ortodoncia.'},
+  {icon:'🤰',name:'Ginecología',desc:'Salud femenina integral.'}
+];
+const doctors = [
+  {name:'Dra. María García',esp:'Medicina General',desc:'Especialista en atención primaria con más de 10 años de experiencia. Enfocada en medicina preventiva.',init:'M'},
+  {name:'Dr. Carlos Ruiz',esp:'Cardiología',desc:'Cardiólogo con subespecialidad en insuficiencia cardíaca. Miembro de la Sociedad Colombiana de Cardiología.',init:'C'},
+  {name:'Dra. Laura Peña',esp:'Pediatría',desc:'Pediatra apasionada por la salud infantil. Experiencia en desarrollo y nutrición pediátrica.',init:'L'},
+  {name:'Dr. Andrés Mora',esp:'Dermatología',desc:'Dermatólogo clínico y estético. Enfoque en prevención y tratamientos no invasivos.',init:'A'}
+];
+
+document.getElementById('servicesGrid').innerHTML = services.map(s =>
+  `<div class="service-card"><div class="ic">${s.icon}</div><h3>${s.name}</h3><p>${s.desc}</p></div>`
+).join('');
+
+document.getElementById('doctorsList').innerHTML = doctors.map(d =>
+  `<div class="doctor-row"><div class="doc-avatar">👨‍⚕️</div><div class="doc-info"><h3>${d.name}</h3><div class="esp">${d.esp}</div><p>${d.desc}</p></div><a href="#contacto" class="doc-btn">Agendar cita</a></div>`
+).join('');
+
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('open')}
+document.querySelectorAll('.sidebar-nav a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('open')})});
+</script>
+</body>
+</html>

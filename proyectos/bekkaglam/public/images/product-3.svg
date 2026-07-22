@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FBEAF2"/>
+  <circle cx="200" cy="220" r="80" fill="none" stroke="#E91E8C" stroke-width="1" opacity="0.2"/>
+  <rect x="160" y="180" width="80" height="60" rx="8" fill="none" stroke="#E91E8C" stroke-width="2"/>
+  <text x="200" y="350" text-anchor="middle" font-family="Poppins, sans-serif" font-size="12" fill="#E91E8C" font-weight="600">Producto Bekkaglam</text>
+</svg>

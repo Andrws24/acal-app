@@ -4,11 +4,11 @@ export const COMPANY = {
   description:
     "ACAL es una empresa colombiana dedicada a brindar soluciones tecnológicas para personas y pequeñas empresas. Ofrecemos soporte técnico, asesoría tecnológica, desarrollo web y soluciones digitales.",
   email: "soporte.acal@gmail.com",
-  phone: "3023461106",
-  whatsapp: "573023461106",
+  phone: "301787709",
+  whatsapp: "57301787709",
   instagram: "acal.tecnologia",
   instagramUrl: "https://instagram.com/acal.tecnologia",
-  whatsappUrl: "https://wa.me/573023461106",
+  whatsappUrl: "https://wa.me/57301787709",
 } as const;
 
 export const NAVIGATION = [

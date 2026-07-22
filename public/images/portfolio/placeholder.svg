@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <rect width="400" height="250" fill="#F5F7FA" rx="16"/>
+  <circle cx="200" cy="110" r="40" fill="#DDE3EA" opacity="0.5"/>
+  <path d="M185 110 L200 125 L215 110" fill="none" stroke="#DDE3EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="200" y1="90" x2="200" y2="125" stroke="#DDE3EA" stroke-width="2" stroke-linecap="round"/>
+  <text x="200" y="175" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#243447">Próximo Proyecto</text>
+  <text x="200" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8896AB">Tu proyecto aquí</text>
+</svg>

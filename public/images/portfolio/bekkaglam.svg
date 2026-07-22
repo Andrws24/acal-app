@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FDF2F8"/>
+      <stop offset="100%" style="stop-color:#FCE7F3"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E8A0BF"/>
+      <stop offset="100%" style="stop-color:#D4A5A5"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bg)" rx="16"/>
+  <circle cx="200" cy="100" r="60" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="200" cy="100" r="45" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.2"/>
+  <path d="M160 140 Q200 110 240 140" fill="none" stroke="url(#accent)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M175 80 L200 65 L225 80" fill="none" stroke="url(#accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="165" y1="90" x2="165" y2="140" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="235" y1="90" x2="235" y2="140" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+  <text x="200" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#243447">Bekkaglam</text>
+  <text x="200" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8896AB">Women's Boutique</text>
+</svg>
