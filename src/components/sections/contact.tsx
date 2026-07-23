@@ -26,8 +26,15 @@ export function Contact() {
     const necesidad = data.get("subject") as string;
     const mensaje = data.get("message") as string;
 
-    const whatsappMessage = `Hola ACAL,%0A%0ANombre: ${nombre}%0ACorreo: ${email}%0ANecesidad: ${necesidad}%0AMensaje: ${mensaje}`;
-    window.open(`${COMPANY.whatsappUrl}?text=${whatsappMessage}`, "_blank");
+    const whatsappMessage = encodeURIComponent(
+      `Hola ACAL, me comunico desde su página web.\n\n` +
+      `Nombre: ${nombre}\n` +
+      `Correo: ${email}\n` +
+      `Necesidad: ${necesidad}\n` +
+        `Mensaje: ${mensaje}`
+    );
+
+    window.location.href = `${COMPANY.whatsappUrl}?text=${whatsappMessage}`;
 
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
