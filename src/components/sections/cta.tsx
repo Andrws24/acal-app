@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
@@ -26,11 +26,11 @@ export function CTA() {
 
         <div className="relative">
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-            ¿Listo para impulsar tu negocio?
+            Hablemos de tu proyecto
           </h2>
           <p className="text-white/80 text-lg max-w-2xl mx-auto mb-8">
-            Contáctanos hoy y descubre cómo podemos ayudarte a alcanzar tus
-            objetivos con soluciones tecnológicas modernas y efectivas.
+            Estamos listos para ayudarte. Cuéntanos qué necesitas y te
+            respondemos con una solución real.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
@@ -40,7 +40,7 @@ export function CTA() {
               asChild
             >
               <a
-                href={COMPANY.whatsappUrl}
+                href={`${COMPANY.whatsappUrl}?text=Hola%20ACAL,%20necesito%20una%20asesor%C3%ADa%20t%C3%A9cnica.`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -54,12 +54,15 @@ export function CTA() {
               className="text-white hover:text-white hover:bg-white/10"
               asChild
             >
-              <a href="mailto:ac.soltecnologia@gmail.com">
-                Enviar Correo
+              <a href={`mailto:${COMPANY.email}`}>
+                Enviar correo
                 <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
           </div>
+          <p className="text-white/60 text-sm mt-6">
+            {COMPANY.hours}
+          </p>
         </div>
       </motion.div>
     </Section>

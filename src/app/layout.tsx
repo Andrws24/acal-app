@@ -8,8 +8,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://acal-app.vercel.app";
-const siteName = "ACAL - Tecnología que conecta y soluciona";
+const siteUrl = "https://acal-app.vercel.app";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -20,11 +19,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: siteName,
-    template: `%s | ${siteName}`,
+    default: "ACAL | Soporte Técnico y Soluciones Digitales en Colombia",
+    template: "%s | ACAL",
   },
   description:
-    "ACAL es una empresa colombiana de soluciones tecnológicas. Soporte técnico, asesoría, desarrollo web y soluciones digitales para personas y pequeñas empresas.",
+    "Más de 5 años de experiencia en soporte técnico, desarrollo web y asesoría tecnológica para personas y pequeñas empresas en Colombia.",
   keywords: [
     "soporte técnico",
     "desarrollo web",
@@ -33,6 +32,9 @@ export const metadata: Metadata = {
     "tecnología Colombia",
     "ACAL",
     "soporte informático",
+    "reparación de equipos",
+    "instalación de software",
+    "redes WiFi",
   ],
   authors: [{ name: "ACAL" }],
   creator: "ACAL",
@@ -46,24 +48,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CO",
     siteName: "ACAL",
-    title: siteName,
+    title: "ACAL | Tecnología que conecta y soluciona",
     description:
-      "Soluciones tecnológicas para personas y empresas. Soporte técnico, desarrollo web y más.",
+      "Soporte técnico profesional, desarrollo web y asesoría tecnológica en Colombia.",
     url: siteUrl,
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: siteName,
+        alt: "ACAL - Tecnología que conecta y soluciona",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteName,
+    title: "ACAL | Tecnología que conecta y soluciona",
     description:
-      "Soluciones tecnológicas para personas y empresas.",
+      "Soporte técnico profesional, desarrollo web y asesoría tecnológica en Colombia.",
     images: ["/images/og-image.jpg"],
   },
   robots: {
@@ -85,19 +87,20 @@ export const metadata: Metadata = {
   other: {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "LocalBusiness",
       name: "ACAL",
+      description: "Soporte técnico y soluciones digitales en Colombia",
       url: siteUrl,
-      logo: `${siteUrl}/images/logo.png`,
-      description:
-        "Empresa colombiana de soluciones tecnológicas para personas y pequeñas empresas.",
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+57-3023461106",
-        contactType: "customer service",
-        email: "soporte.acal@gmail.com",
+      telephone: "+57-301-787-7009",
+      email: "soporte.acal@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "CO",
       },
-      sameAs: ["https://instagram.com/acal.tecnologia"],
+      sameAs: [
+        "https://instagram.com/acal.tecnologia",
+        "https://facebook.com/ACALTecnologia",
+      ],
     }),
   },
 };

@@ -33,9 +33,9 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-text leading-[1.1]"
           >
-            Soluciones Tecnológicas
+            Tu aliado tecnológico
             <br />
-            <span className="gradient-text">para Personas y Empresas</span>
+            <span className="gradient-text">en Colombia</span>
           </motion.h1>
 
           <motion.p
@@ -44,8 +44,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-lg md:text-xl text-text/80 leading-relaxed max-w-2xl mx-auto"
           >
-            Soporte técnico, asesoría tecnológica, desarrollo web y soluciones digitales
-            para impulsar tus proyectos.
+            Más de 5 años resolviendo problemas técnicos y ayudando a personas y
+            pequeñas empresas a aprovechar la tecnología.
           </motion.p>
 
           <motion.div
@@ -55,37 +55,21 @@ export function Hero() {
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button size="lg" asChild>
-              <a href={COMPANY.whatsappUrl} target="_blank" rel="noopener noreferrer">
-                Solicitar Asesoría
+              <a
+                href={`${COMPANY.whatsappUrl}?text=Hola%20ACAL,%20necesito%20una%20asesor%C3%ADa%20t%C3%A9cnica.`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Solicitar asesoría gratuita
                 <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
               <a href="#servicios">
-                Conocer Servicios
+                Conocer servicios
                 <ChevronDown className="w-4 h-4" />
               </a>
             </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="mt-16 flex items-center justify-center gap-8 text-sm text-text/40"
-          >
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-              Soporte Técnico
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              Desarrollo Web
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-              Asesoría
-            </span>
           </motion.div>
         </div>
       </div>
