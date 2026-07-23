@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { useState } from "react";
-import { Send, Check, Phone, Mail } from "lucide-react";
+import { Send, Check, Phone, Mail, MessageCircle, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input, TextArea } from "@/components/ui/input";
@@ -14,30 +14,44 @@ import { useIntersection } from "@/hooks/use-intersection";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [ref, isVisible] = useIntersection({ threshold: 0.1 });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSending(true);
+    setError("");
+
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
 
-    const nombre = data.get("name") as string;
-    const email = data.get("email") as string;
-    const necesidad = data.get("subject") as string;
-    const mensaje = data.get("message") as string;
+    const payload = {
+      name: data.get("name") as string,
+      email: data.get("email") as string,
+      subject: data.get("subject") as string,
+      message: data.get("message") as string,
+    };
 
-    const whatsappMessage = encodeURIComponent(
-      `Hola ACAL, me comunico desde su página web.\n\n` +
-      `Nombre: ${nombre}\n` +
-      `Correo: ${email}\n` +
-      `Necesidad: ${necesidad}\n` +
-        `Mensaje: ${mensaje}`
-    );
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    window.location.href = `${COMPANY.whatsappUrl}?text=${whatsappMessage}`;
+      if (!res.ok) {
+        throw new Error("Error al enviar");
+      }
 
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+      setSubmitted(true);
+      form.reset();
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch {
+      setError("No se pudo enviar el mensaje. Intenta de nuevo.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const contactInfo = [
@@ -122,10 +136,10 @@ export function Contact() {
                     <Check className="w-7 h-7 text-secondary" />
                   </div>
                   <h3 className="font-semibold text-text text-lg mb-1">
-                    ¡Mensaje listo!
+                    ¡Mensaje enviado!
                   </h3>
                   <p className="text-sm text-text/80">
-                    Se abrió WhatsApp con tu mensaje.
+                    Te responderemos pronto a tu correo.
                   </p>
                 </div>
               ) : (
@@ -133,12 +147,14 @@ export function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Input
                       id="name"
+                      name="name"
                       label="Nombre"
                       placeholder="Tu nombre"
                       required
                     />
                     <Input
                       id="email"
+                      name="email"
                       label="Correo electrónico"
                       type="email"
                       placeholder="tu@correo.com"
@@ -165,15 +181,41 @@ export function Contact() {
                   </div>
                   <TextArea
                     id="message"
+                    name="message"
                     label="Mensaje"
                     placeholder="Cuéntanos más sobre tu proyecto o consulta..."
                     rows={4}
                     required
                   />
-                  <Button type="submit" className="w-full">
-                    <Send className="w-4 h-4" />
-                    Enviar por WhatsApp
+
+                  {error && (
+                    <p className="text-sm text-red-500 bg-red-50 p-3 rounded-xl">
+                      {error}
+                    </p>
+                  )}
+
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={sending}
+                  >
+                    {sending ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4" />
+                    )}
+                    {sending ? "Enviando..." : "Enviar mensaje"}
                   </Button>
+
+                  <a
+                    href={`${COMPANY.whatsappUrl}?text=${encodeURIComponent("Hola ACAL, me comunico desde su página web.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full text-sm text-primary hover:text-primary/80 transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    O escríbenos por WhatsApp
+                  </a>
                 </form>
               )}
             </CardContent>
