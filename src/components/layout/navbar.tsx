@@ -3,12 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { COMPANY, NAVIGATION } from "@/lib/constants";
+import { COMPANY, NAVIGATION, DEFAULT_WHATSAPP_MESSAGE, whatsappLink } from "@/lib/constants";
 import { useScroll } from "@/hooks/use-scroll";
+
+const whatsappHref = whatsappLink(DEFAULT_WHATSAPP_MESSAGE);
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +21,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-gray/40 shadow-sm"
+          ? "bg-white/80 backdrop-blur-xl border-b border-gray shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -34,7 +36,9 @@ export function Navbar() {
               className="w-9 h-9 object-contain"
               priority
             />
-            <span className="font-semibold text-lg text-text">{COMPANY.name}</span>
+            <span className="font-semibold text-lg text-text">
+              {COMPANY.name}
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
@@ -51,8 +55,13 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-3">
             <Button size="sm" asChild>
-              <a href={COMPANY.whatsappUrl} target="_blank" rel="noopener noreferrer">
-                Contactar
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
               </a>
             </Button>
           </div>
@@ -73,23 +82,28 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray/40 overflow-hidden"
+            className="md:hidden bg-white border-b border-gray overflow-hidden"
           >
-            <div className="px-4 py-4 space-y-1">
+            <div className="px-6 py-4 space-y-1">
               {NAVIGATION.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-text/70 hover:text-text rounded-lg hover:bg-primary/5 transition-colors"
+                  className="block px-4 py-3 text-base text-text/70 hover:text-text rounded-lg hover:bg-primary/5 transition-colors"
                 >
                   {item.label}
                 </Link>
               ))}
               <div className="pt-2">
                 <Button className="w-full" asChild>
-                  <a href={COMPANY.whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    Contactar
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    Hablar por WhatsApp
                   </a>
                 </Button>
               </div>

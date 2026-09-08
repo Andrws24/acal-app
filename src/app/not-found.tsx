@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Página no encontrada",
@@ -23,12 +25,9 @@ export default function NotFound() {
           <p className="text-text/60 mb-8 max-w-md mx-auto">
             La página que buscas no existe o ha sido movida.
           </p>
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 rounded-xl gradient-bg text-white px-6 py-2.5 text-sm font-medium shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all"
-          >
-            Volver al inicio
-          </a>
+          <Button className="w-full sm:w-auto" asChild>
+            <Link href="/">Volver al inicio</Link>
+          </Button>
         </Container>
       </main>
       <Footer />

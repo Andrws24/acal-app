@@ -1,26 +1,17 @@
 "use client";
 
-import {
-  Monitor,
-  Zap,
-  Download,
-  Compass,
-  Code,
-  Network,
-} from "lucide-react";
+import { Settings, Lightbulb, Monitor, Code, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { COMPANY, SERVICES } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
+import { whatsappLink, CORE_SERVICES } from "@/lib/constants";
 import { useIntersection } from "@/hooks/use-intersection";
 
 const iconMap: Record<string, React.ElementType> = {
+  Settings,
+  Lightbulb,
   Monitor,
-  Zap,
-  Download,
-  Compass,
   Code,
-  Network,
 };
 
 export function Services() {
@@ -30,48 +21,48 @@ export function Services() {
     <Section id="servicios" background="white">
       <SectionHeader
         title="Servicios"
-        subtitle="Soluciones tecnológicas reales para personas y pequeñas empresas. Cada servicio está diseñado para resolver problemas concretos."
+        subtitle="Cuatro formas de dejar de pelear con la tecnología."
       />
 
       <div
         ref={ref}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto"
       >
-        {SERVICES.map((service, index) => {
-          const Icon = iconMap[service.icon] || Monitor;
-          const whatsappLink = `${COMPANY.whatsappUrl}?text=${encodeURIComponent(service.whatsappMessage)}`;
+        {CORE_SERVICES.map((service, index) => {
+          const Icon = iconMap[service.icon] || Settings;
+          const whatsappHref = whatsappLink(service.whatsappMessage);
 
           return (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 24 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
+              transition={{ duration: 0.45, delay: index * 0.1 }}
             >
-              <Card className="h-full group hover:shadow-md hover:border-primary/20 transition-all duration-300">
-                <CardContent className="flex flex-col h-full">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
+              <div className="h-full flex flex-col rounded-2xl bg-white border border-gray p-6 md:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-5">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
 
-                  <h3 className="font-semibold text-text mb-2">
-                    {service.title}
-                  </h3>
+                <h3 className="text-xl font-semibold text-text mb-2">
+                  {service.title}
+                </h3>
 
-                  <p className="text-sm text-text/80 leading-relaxed mb-4 flex-1">
-                    {service.description}
-                  </p>
+                <p className="text-base text-muted leading-relaxed mb-6 flex-1">
+                  {service.description}
+                </p>
 
+                <Button className="w-full" asChild>
                   <a
-                    href={whatsappLink}
+                    href={whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                   >
-                    Más información →
+                    Cotizar este servicio
+                    <ArrowRight className="w-4 h-4" />
                   </a>
-                </CardContent>
-              </Card>
+                </Button>
+              </div>
             </motion.div>
           );
         })}

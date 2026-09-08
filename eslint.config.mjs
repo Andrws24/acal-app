@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Cliente-side published artifacts should never be linted.
+    "public/**",
   ]),
 ]);
 

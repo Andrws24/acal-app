@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
-import { Services } from "@/components/sections/services";
+import { ServiceCatalog } from "@/components/sections/service-catalog";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 
@@ -23,7 +23,7 @@ export default function ServiciosPage() {
             subtitle="Soluciones integrales diseñadas para cubrir cada necesidad tecnológica de tu empresa."
           />
         </Container>
-        <Services />
+        <ServiceCatalog />
         <Section background="white">
           <Container className="text-center">
             <p className="text-text/60 max-w-2xl mx-auto">

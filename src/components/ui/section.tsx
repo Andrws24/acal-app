@@ -3,7 +3,7 @@ import type { HTMLAttributes } from "react";
 
 interface SectionProps extends HTMLAttributes<HTMLElement> {
   container?: boolean;
-  background?: "white" | "gray" | "gradient";
+  background?: "white" | "gray";
 }
 
 export function Section({
@@ -16,11 +16,10 @@ export function Section({
   return (
     <section
       className={cn(
-        "py-16 md:py-24",
+        "py-14 md:py-20",
         {
           "bg-white": background === "white",
           "bg-background": background === "gray",
-          "gradient-bg": background === "gradient",
         },
         className
       )}

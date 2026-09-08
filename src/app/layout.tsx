@@ -13,7 +13,7 @@ const siteUrl = "https://acal-app.vercel.app";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#2F8DF3",
+  themeColor: "#0A2647",
 };
 
 export const metadata: Metadata = {

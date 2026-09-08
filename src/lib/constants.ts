@@ -15,11 +15,19 @@ export const COMPANY = {
   hours: "Lunes a sábado, 8:00 a.m. - 6:00 p.m. (hora Colombia)",
 } as const;
 
+export const DEFAULT_WHATSAPP_MESSAGE =
+  "Hola ACAL, necesito una asesoría técnica.";
+
+export function whatsappLink(message: string): string {
+  return `${COMPANY.whatsappUrl}?text=${encodeURIComponent(message)}`;
+}
+
 export const NAVIGATION = [
   { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/#servicios" },
-  { label: "Portafolio", href: "/#portafolio" },
-  { label: "Contacto", href: "/#contacto" },
+  { label: "Garantía", href: "/#garantia" },
+  { label: "Proceso", href: "/#proceso" },
+  { label: "Empresas", href: "/empresas" },
 ] as const;
 
 export const SERVICES = [
@@ -73,57 +81,80 @@ export const SERVICES = [
   },
 ] as const;
 
-export const WHY_ACAL = [
+export const CORE_SERVICES = [
   {
-    number: "01",
-    title: "Atención personalizada",
+    title: "Soporte Técnico",
     description:
-      "Cada caso es diferente. No aplicamos soluciones de fábrica.",
+      "Reparación, mantenimiento y solución de fallas en tus equipos. Remoto o presencial cuando lo necesites.",
+    icon: "Monitor",
+    whatsappMessage:
+      "Hola ACAL, quiero cotizar el servicio de Soporte Técnico.",
   },
   {
-    number: "02",
-    title: "Diagnóstico transparente",
+    title: "Instalación y Configuración",
     description:
-      "Te explicamos qué pasa, por qué pasa y cuánto cuesta antes de tocar nada.",
+      "Instalación de software, sistemas operativos y herramientas. Todo listo para que trabajes desde el día uno.",
+    icon: "Settings",
+    whatsappMessage:
+      "Hola ACAL, quiero cotizar el servicio de Instalación y Configuración.",
   },
   {
-    number: "03",
-    title: "Técnico + Estratega",
+    title: "Asesoría Tecnológica",
     description:
-      "No solo reparamos. Te asesoramos para que no vuelva a pasar.",
+      "Te guío para elegir el equipo, software o plan adecuado. Sin tecnicismos y sin gastar de más.",
+    icon: "Lightbulb",
+    whatsappMessage:
+      "Hola ACAL, quiero cotizar el servicio de Asesoría Tecnológica.",
   },
   {
-    number: "04",
-    title: "Disponibilidad real",
+    title: "Desarrollo Web",
     description:
-      "Respuesta en WhatsApp en menos de 2 horas en horario laboral.",
+      "Landing pages y sitios modernos, rápidos y optimizados para tu negocio.",
+    icon: "Code",
+    whatsappMessage:
+      "Hola ACAL, quiero cotizar el servicio de Desarrollo Web.",
+  },
+] as const;
+
+export const GUARANTEE = [
+  {
+    title: "Diagnóstico sin letra pequeña",
+    description:
+      "Sabes qué falla y cuánto cuesta antes de empezar. Cero costos ocultos.",
+    icon: "ClipboardCheck",
+  },
+  {
+    title: "Solución en tiempo récord",
+    description:
+      "Vamos directo al problema y dejamos todo funcionando lo más rápido posible.",
+    icon: "Timer",
+  },
+  {
+    title: "Te explico cada paso en humano",
+    description:
+      "Sin tecnicismos raros. Te hablo claro, desde el diagnóstico hasta el último detalle.",
+    icon: "MessagesSquare",
   },
 ] as const;
 
 export const PROCESS_STEPS = [
   {
-    number: "01",
-    title: "Contacto",
+    number: "1",
+    title: "Me contactas",
     description:
-      "Me escribes por WhatsApp o correo. Respondemos en menos de 2 horas.",
+      "Escríbeme por WhatsApp o correo y cuéntame qué está pasando. Respuesta rápida en horario de atención.",
   },
   {
-    number: "02",
-    title: "Diagnóstico",
+    number: "2",
+    title: "Analizo tu caso sin costo",
     description:
-      "Evaluamos tu necesidad y te damos un diagnóstico claro y un presupuesto sin sorpresas.",
+      "Reviso tu situación, te explico qué ocurre y te doy un diagnóstico claro con presupuesto directo, sin compromiso.",
   },
   {
-    number: "03",
-    title: "Ejecución",
+    number: "3",
+    title: "Lo soluciono y te capacito",
     description:
-      "Realizamos el trabajo con los más altos estándares. Te mantenemos informado.",
-  },
-  {
-    number: "04",
-    title: "Entrega",
-    description:
-      "Entregamos, explicamos y te dejamos con garantía de satisfacción.",
+      "Dejo todo funcionando y te explico en palabras sencillas cómo evitar que el problema vuelva.",
   },
 ] as const;
 
@@ -156,15 +187,6 @@ export const PORTFOLIO = [
     image: "/images/portfolio/bekkaglam.svg",
   },
 ] as const;
-
-export interface Testimonial {
-  name: string;
-  role: string;
-  content: string;
-  rating: number;
-}
-
-export const TESTIMONIALS: Testimonial[] = [];
 
 export const BLOG_CATEGORIES = [
   "Windows",
