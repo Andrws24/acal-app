@@ -172,10 +172,13 @@ export function Contact() {
                     >
                       <option value="">Seleccionar...</option>
                       <option value="Soporte técnico">Soporte técnico</option>
-                      <option value="Desarrollo web">Desarrollo web</option>
+                      <option value="Instalación y configuración">
+                        Instalación y configuración
+                      </option>
                       <option value="Asesoría tecnológica">
                         Asesoría tecnológica
                       </option>
+                      <option value="Desarrollo web">Desarrollo web</option>
                       <option value="Otro">Otro</option>
                     </select>
                   </div>

@@ -56,7 +56,7 @@ export function Footer() {
             &copy; {currentYear} {COMPANY.name}. Todos los derechos
             reservados.
           </p>
-          <p className="text-sm text-muted">Hecho en Colombia</p>
+          <p className="text-sm text-muted">Hecho por ACAL en Colombia</p>
         </div>
       </div>
     </footer>
