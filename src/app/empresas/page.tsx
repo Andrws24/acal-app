@@ -14,11 +14,11 @@ import { BusinessCta } from "@/components/business/business-cta";
 export const metadata: Metadata = {
   title: "Planes para Empresas",
   description:
-    "Soporte TI por suscripción mensual para PYMES en Colombia. Planes desde $350.000/mes, respuesta garantizada y diagnóstico gratuito sin compromiso.",
+    "Soporte TI por suscripción mensual para PYMES. Planes desde $350.000/mes, respuesta garantizada y diagnóstico gratuito sin compromiso.",
   openGraph: {
     title: "Planes para Empresas | ACAL",
     description:
-      "Convierte a ACAL en tu departamento de sistemas externo. Planes de soporte TI mensuales para PYMES en Colombia.",
+      "Convierte a ACAL en tu departamento de sistemas externo. Planes de soporte TI mensuales para PYMES.",
     url: "/empresas",
   },
 };

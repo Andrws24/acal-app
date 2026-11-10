@@ -22,7 +22,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
-            Soporte técnico y asesoría tecnológica en Colombia
+            Soporte técnico y asesoría tecnológica
           </span>
         </motion.div>
 
@@ -42,7 +42,7 @@ export function Hero() {
           className="mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto text-balance"
         >
           Instalación y asesoría tecnológica para que todo funcione sin
-          complicaciones en Colombia.
+          complicaciones.
         </motion.p>
 
         <motion.div

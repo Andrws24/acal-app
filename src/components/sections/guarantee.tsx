@@ -18,8 +18,8 @@ export function Guarantee() {
   return (
     <Section id="garantia" background="gray">
       <SectionHeader
-        title="La garantía ACAL"
-        subtitle="Sin promesas vacías. Esto es lo que consigues al escribirnos."
+        title="Nuestro compromiso"
+        subtitle="Sin promesas vacías. Esto es lo que obtienes al escribirnos."
       />
 
       <div

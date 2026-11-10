@@ -102,7 +102,7 @@ export const COMPARISON_ROWS = [
 
 export const BUSINESS_CONFIG = {
   equipos: ["1 a 5", "6 a 10", "11 a 15", "Más de 15"],
-  ciudad: ["Bogotá", "Medellín", "Otra ciudad en Colombia"],
+  ciudad: ["Bogotá", "Medellín", "Otra ciudad"],
   modalidad: ["Solo remoto", "Remoto + visitas presenciales"],
   urgencia: [
     "No urgente: planeo con calma",

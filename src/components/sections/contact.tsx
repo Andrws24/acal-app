@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input, TextArea } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import { CopyButton } from "@/components/ui/copy-button";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { COMPANY } from "@/lib/constants";
 import { useIntersection } from "@/hooks/use-intersection";
@@ -58,14 +59,16 @@ export function Contact() {
     {
       icon: Phone,
       label: "WhatsApp",
-      value: COMPANY.phone,
+      value: COMPANY.phoneDisplay,
       href: COMPANY.whatsappUrl,
+      copyable: false,
     },
     {
       icon: Mail,
       label: "Correo",
       value: COMPANY.email,
       href: `mailto:${COMPANY.email}`,
+      copyable: true,
     },
   ];
 
@@ -73,7 +76,7 @@ export function Contact() {
     <Section id="contacto" background="white">
       <SectionHeader
         title="Hablemos"
-        subtitle="Estamos listos para ayudarte. Escríbenos y te respondemos con una solución real."
+        subtitle="Escríbenos y recibe una respuesta clara en el menor tiempo posible."
       />
 
       <div
@@ -88,31 +91,40 @@ export function Contact() {
         >
           {contactInfo.map((info) => {
             const Icon = info.icon;
-            const content = (
-              <Card hover={false} className="group cursor-default">
+            const isExternal = info.href.startsWith("http");
+
+            return (
+              <Card key={info.label} hover={false} className="group">
                 <CardContent className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <div className="w-10 h-10 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <div>
+
+                  <div className="min-w-0 flex-1">
                     <p className="text-xs text-text/50">{info.label}</p>
-                    <p className="text-sm font-medium text-text">{info.value}</p>
+                    {/*
+                      El `href` va en el valor, no envolviendo la tarjeta.
+                      Asi el boton de copiar puede ser hermano del enlace: anidar
+                      un <button> dentro de un <a> es HTML invalido.
+                    */}
+                    <a
+                      href={info.href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      className="text-sm font-medium text-text hover:text-primary transition-colors break-all"
+                    >
+                      {info.value}
+                    </a>
                   </div>
+
+                  {info.copyable && (
+                    <CopyButton
+                      value={info.value}
+                      label={`Copiar ${info.label.toLowerCase()}`}
+                    />
+                  )}
                 </CardContent>
               </Card>
-            );
-
-            return info.href ? (
-              <a
-                key={info.label}
-                href={info.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {content}
-              </a>
-            ) : (
-              <div key={info.label}>{content}</div>
             );
           })}
 

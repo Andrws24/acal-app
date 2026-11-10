@@ -15,7 +15,7 @@ export function Portfolio() {
     <Section id="portafolio" background="white">
       <SectionHeader
         title="Proyectos que hablan por nosotros"
-        subtitle="Cada proyecto es una oportunidad para demostrar nuestro compromiso con la calidad."
+        subtitle="Trabajo real, entregado y funcionando."
       />
 
       <div ref={ref} className="max-w-4xl mx-auto">
@@ -85,7 +85,7 @@ export function Portfolio() {
           className="mt-8 text-center"
         >
           <p className="text-text/60 text-sm mb-4">
-            ¿Tu proyecto aquí? Trabajemos juntos.
+            ¿Tienes un proyecto en mente? Trabajemos juntos.
           </p>
           <a
             href={`${COMPANY.whatsappUrl}?text=Hola%20ACAL,%20tengo%20un%20proyecto%20en%20mente.%20¿Podemos%20hablar?`}

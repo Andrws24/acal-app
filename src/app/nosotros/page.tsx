@@ -9,7 +9,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 export const metadata: Metadata = {
   title: "Nosotros",
   description:
-    "Conoce más sobre ACAL, nuestra misión, visión y valores. Empresa colombiana de soluciones tecnológicas.",
+    "Conoce más sobre ACAL, nuestra misión, visión y valores. Empresa de soluciones tecnológicas.",
 };
 
 export default function NosotrosPage() {
@@ -29,8 +29,8 @@ export default function NosotrosPage() {
             <h3 className="text-2xl font-bold text-text mb-4">Nuestra Visión</h3>
             <p className="text-text/70 leading-relaxed">
               Ser la empresa de referencia en soluciones tecnológicas para
-              personas y pequeñas empresas en Colombia, reconocida por nuestra
-              calidad, cercanía y capacidad de innovación.
+              personas y pequeñas empresas, reconocida por nuestra calidad,
+              cercanía y capacidad de innovación.
             </p>
           </Container>
         </Section>

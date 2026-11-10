@@ -18,7 +18,7 @@ export function BusinessHero() {
 
       <div className="relative mx-auto max-w-4xl px-6 sm:px-8 lg:px-20 pt-32 pb-20 md:pt-40 md:pb-28 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
-          Planes de soporte para PYMES en Colombia
+          Planes de soporte para PYMES
         </span>
 
         <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-text leading-[1.1] text-balance">

@@ -35,7 +35,7 @@ export function Footer() {
               className="flex items-center gap-2.5 text-text hover:text-primary transition-colors"
             >
               <MessageCircle className="w-5 h-5 text-whatsapp" />
-              WhatsApp: {COMPANY.phone}
+              WhatsApp: {COMPANY.phoneDisplay}
             </a>
             <a
               href={`mailto:${COMPANY.email}`}
@@ -51,12 +51,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-gray flex flex-col md:flex-row items-center justify-between gap-2">
+        <div className="mt-10 pt-6 border-t border-gray">
           <p className="text-sm text-muted">
             &copy; {currentYear} {COMPANY.name}. Todos los derechos
             reservados.
           </p>
-          <p className="text-sm text-muted">Hecho por ACAL en Colombia</p>
         </div>
       </div>
     </footer>

@@ -3,10 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL") // Necesario para Supabase
 }
 
+// --- MODELOS DE AUTENTICACIÓN (NextAuth) ---
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -26,12 +28,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String?
-  access_token      String?
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String?
+  id_token          String? @db.Text
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -55,6 +57,8 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+// --- MODELOS DE LA TIENDA (BEKKAGLAM) ---
+
 model Categoria {
   id        String     @id @default(cuid())
   nombre    String
@@ -69,16 +73,22 @@ model Producto {
   referencia    String?
   nombre        String
   slug          String         @unique
-  descripcion   String?
+  descripcion   String?        @db.Text
   precio        Float
+  precioAntes   Float?         // Para mostrar el precio tachado si hay descuento
+  
   categoriaId   String
   categoria     Categoria      @relation(fields: [categoriaId], references: [id])
-  tallas        String
-  colores       String
+  
+  tallas        String         // Ej: "S,M,L,XL"
+  colores       String         // Ej: "Rojo,Negro,Beige"
+  
   imagenes      ImagenProducto[]
+  
   stock         Int            @default(0)
   activo        Boolean        @default(true)
-  destacado     Boolean        @default(false)
+  destacado     Boolean        @default(false) // Para mostrarlo en el Home
+  
   creadoEn      DateTime       @default(now())
   actualizadoEn DateTime       @updatedAt
 }

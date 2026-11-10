@@ -2,17 +2,21 @@ export const COMPANY = {
   name: "ACAL",
   slogan: "Tecnología que conecta y soluciona.",
   description:
-    "ACAL es una empresa colombiana dedicada a brindar soluciones tecnológicas para personas y pequeñas empresas. Ofrecemos soporte técnico, asesoría tecnológica, desarrollo web y soluciones digitales.",
+    "ACAL se dedica a brindar soluciones tecnológicas para personas y pequeñas empresas. Ofrecemos soporte técnico, asesoría tecnológica, desarrollo web y soluciones digitales.",
   email: "soporte.acal@gmail.com",
+  /** Solo para construir enlaces `tel:`. Sin formato, para no romper la URL. */
   phone: "3017877009",
+  /** Cómo se muestra al usuario. `phone` no se reformatea para no afectar enlaces. */
+  phoneDisplay: "+57 301 787 7009",
+  /** Solo para construir enlaces `wa.me`. Sin prefijo ni formato. */
   whatsapp: "573017877009",
   instagram: "acal.tecnologia",
   instagramUrl: "https://instagram.com/acal.tecnologia",
   facebook: "ACAL Tecnología",
   facebookUrl: "https://facebook.com/ACALTecnologia",
   whatsappUrl: "https://wa.me/573017877009",
-  location: "Colombia",
-  hours: "Lunes a sábado, 8:00 a.m. - 6:00 p.m. (hora Colombia)",
+  location: "Cobertura nacional y soporte remoto",
+  hours: "Lunes a sábado, 8:00 a.m. - 6:00 p.m. (hora local)",
 } as const;
 
 export const DEFAULT_WHATSAPP_MESSAGE =
@@ -81,12 +85,18 @@ export const SERVICES = [
   },
 ] as const;
 
+/**
+ * `ctaLabel` vive aquí y no en el componente para que cada servicio tenga su
+ * propio texto de acción. Antes las 4 tarjetas decían "Cotizar este servicio",
+ * que no dice nada; ahora cada CTA dice qué pasa al hacer clic.
+ */
 export const CORE_SERVICES = [
   {
     title: "Soporte Técnico",
     description:
       "Reparación, mantenimiento y solución de fallas en tus equipos. Remoto o presencial cuando lo necesites.",
     icon: "Monitor",
+    ctaLabel: "Solicitar soporte",
     whatsappMessage:
       "Hola ACAL, quiero cotizar el servicio de Soporte Técnico.",
   },
@@ -95,6 +105,7 @@ export const CORE_SERVICES = [
     description:
       "Instalación de software, sistemas operativos y herramientas. Todo listo para que trabajes desde el día uno.",
     icon: "Settings",
+    ctaLabel: "Solicitar instalación",
     whatsappMessage:
       "Hola ACAL, quiero cotizar el servicio de Instalación y Configuración.",
   },
@@ -103,6 +114,7 @@ export const CORE_SERVICES = [
     description:
       "Te guío para elegir el equipo, software o plan adecuado. Sin tecnicismos y sin gastar de más.",
     icon: "Lightbulb",
+    ctaLabel: "Solicitar asesoría",
     whatsappMessage:
       "Hola ACAL, quiero cotizar el servicio de Asesoría Tecnológica.",
   },
@@ -111,6 +123,7 @@ export const CORE_SERVICES = [
     description:
       "Landing pages y sitios modernos, rápidos y optimizados para tu negocio.",
     icon: "Code",
+    ctaLabel: "Solicitar desarrollo web",
     whatsappMessage:
       "Hola ACAL, quiero cotizar el servicio de Desarrollo Web.",
   },
@@ -126,13 +139,13 @@ export const GUARANTEE = [
   {
     title: "Solución en tiempo récord",
     description:
-      "Vamos directo al problema y dejamos todo funcionando lo más rápido posible.",
+      "Voy directo al problema y dejo todo funcionando en el menor tiempo posible.",
     icon: "Timer",
   },
   {
     title: "Te explico cada paso en humano",
     description:
-      "Sin tecnicismos raros. Te hablo claro, desde el diagnóstico hasta el último detalle.",
+      "Sin tecnicismos. Te lo explico claro, desde el diagnóstico hasta el último detalle.",
     icon: "MessagesSquare",
   },
 ] as const;
@@ -140,9 +153,9 @@ export const GUARANTEE = [
 export const PROCESS_STEPS = [
   {
     number: "1",
-    title: "Me contactas",
+    title: "Me escribes",
     description:
-      "Escríbeme por WhatsApp o correo y cuéntame qué está pasando. Respuesta rápida en horario de atención.",
+      "Escríbeme por WhatsApp o correo y cuéntame qué está pasando. Te respondo rápido en horario de atención.",
   },
   {
     number: "2",
@@ -152,7 +165,7 @@ export const PROCESS_STEPS = [
   },
   {
     number: "3",
-    title: "Lo soluciono y te capacito",
+    title: "Lo soluciono y te explico",
     description:
       "Dejo todo funcionando y te explico en palabras sencillas cómo evitar que el problema vuelva.",
   },
@@ -165,7 +178,7 @@ export const ABOUT = {
 
 ACAL nació de una idea simple: la tecnología no debería ser un dolor de cabeza. Mi trabajo no es solo reparar equipos. Es entender lo que necesitas, explicártelo en palabras sencillas y dejarte mejor de lo que te encontré.
 
-No soy una empresa grande con 50 empleados. Soy un profesional comprometido que responde tu mensaje, conoce tu caso y se asegura de que todo funcione. Esa es la diferencia.`,
+Trabajo directamente con quien me escribe. Conozco tu caso, te respondo personalmente y me aseguro de que todo quede funcionando antes de darlo por terminado.`,
   values: [
     { title: "Confianza", description: "Cada interacción construye una relación a largo plazo." },
     { title: "Transparencia", description: "Sin costos ocultos, sin letra pequeña." },

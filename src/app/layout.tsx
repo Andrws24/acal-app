@@ -19,11 +19,17 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ACAL | Soporte Técnico y Soluciones Digitales en Colombia",
+    default: "ACAL | Soporte Técnico y Soluciones Digitales",
     template: "%s | ACAL",
   },
   description:
-    "Más de 5 años de experiencia en soporte técnico, desarrollo web y asesoría tecnológica para personas y pequeñas empresas en Colombia.",
+    "Más de 5 años de experiencia en soporte técnico, desarrollo web y asesoría tecnológica para personas y pequeñas empresas.",
+  /**
+   * Keywords y `addressCountry` conservan el término "Colombia" a propósito.
+   * Son señales de geolocalización para buscadores, no copy visible: quitarlas
+   * impide que el sitio aparezca en búsquedas como "soporte técnico Colombia",
+   * que es como busca un cliente local. El copy visible sí es neutral.
+   */
   keywords: [
     "soporte técnico",
     "desarrollo web",
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "ACAL",
     title: "ACAL | Tecnología que conecta y soluciona",
     description:
-      "Soporte técnico profesional, desarrollo web y asesoría tecnológica en Colombia.",
+      "Soporte técnico profesional, desarrollo web y asesoría tecnológica.",
     url: siteUrl,
     images: [
       {
@@ -65,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ACAL | Tecnología que conecta y soluciona",
     description:
-      "Soporte técnico profesional, desarrollo web y asesoría tecnológica en Colombia.",
+      "Soporte técnico profesional, desarrollo web y asesoría tecnológica.",
     images: ["/images/og-image.jpg"],
   },
   robots: {
@@ -89,12 +95,13 @@ export const metadata: Metadata = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       name: "ACAL",
-      description: "Soporte técnico y soluciones digitales en Colombia",
+      description: "Soporte técnico y soluciones digitales",
       url: siteUrl,
       telephone: "+57-301-787-7009",
       email: "soporte.acal@gmail.com",
       address: {
         "@type": "PostalAddress",
+        // Se mantiene "CO" por SEO local. Ver nota en `metadata.keywords`.
         addressCountry: "CO",
       },
       sameAs: [

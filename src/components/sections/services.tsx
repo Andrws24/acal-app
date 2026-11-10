@@ -21,7 +21,7 @@ export function Services() {
     <Section id="servicios" background="white">
       <SectionHeader
         title="Servicios"
-        subtitle="Cuatro formas de dejar de pelear con la tecnología."
+        subtitle="Cuatro formas de resolver tus problemas tecnológicos."
       />
 
       <div
@@ -58,7 +58,7 @@ export function Services() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Cotizar este servicio
+                    {service.ctaLabel}
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </Button>

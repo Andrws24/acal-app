@@ -12,7 +12,7 @@ export function About() {
     <Section id="nosotros" background="gray">
       <SectionHeader
         title="La persona detrás de ACAL"
-        subtitle="No soy una empresa grande. Soy un profesional comprometido que responde tu mensaje y conoce tu caso."
+        subtitle="Te responde la persona que va a resolver tu caso, no un formulario automático."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
